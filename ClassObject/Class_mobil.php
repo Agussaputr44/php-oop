@@ -64,7 +64,7 @@ class Mobil_Pickup
 
     public function get_vol_diangkut()
     {
-        return $this->l_bak * $this->p_bak * $this->t_bak;
+        return $this->vol_diangkut;
     }
 
     public function set_t_bak($t_bak)
@@ -111,32 +111,43 @@ class Mobil_Pickup
     {
         $berat_diangkut = $this->get_berat_diangkut();
         $berat_max = $this->get_berat_max();
-
-        if (($berat_diangkut + $berat) > $berat_max) {
-            echo "Gagal<br>";
+    
+        if ($this->get_vol_diangkut() > 0) {
+            echo "Gagal, kendaraan sudah terisi pasir<br>";
             return false;
         }
-
+    
+        if (($berat_diangkut + $berat) > $berat_max) {
+            echo "Gagal, berat muatan melebihi batas maksimum<br>";
+            return false;
+        }
+    
         $this->berat_diangkut += $berat;
-        echo "Berhasil<br>";
-
+        echo "Berhasil mengisi barang<br>";
+    
         return true;
     }
-
+    
     public function isi_pasir($vol)
     {
         $vol_diangkut = $this->get_vol_diangkut();
         $vol_max = $this->get_l_bak() * $this->get_p_bak() * $this->get_t_bak();
-
-        if (($vol_diangkut + $vol) > $vol_max) {
-            echo "Gagal<br>";
+    
+        if ($this->get_berat_diangkut() > 0) {
+            echo "Gagal, kendaraan sudah terisi barang<br>";
             return false;
         }
-
+    
+        if (($vol_diangkut + $vol) > $vol_max) {
+            echo "Gagal, volume pasir melebihi kapasitas bak<br>";
+            return false;
+        }
+    
         $this->vol_diangkut += $vol;
-        echo "Berhasil<br>";
+        echo "Berhasil mengisi pasir<br>";
         return true;
     }
+    
 
     public function set_nilai_angkut()
     {
