@@ -54,7 +54,12 @@ class Mobil_Pickup
 
     public function get_berat_diangkut()
     {
-        return $this->berat_diangkut;
+        $berat = $this->berat_diangkut;
+        if($berat != 0){
+
+            return $this->berat_diangkut;
+        }
+        return 0;
     }
 
     public function set_vol_diangkut($vol_diangkut)
@@ -64,7 +69,13 @@ class Mobil_Pickup
 
     public function get_vol_diangkut()
     {
-        return $this->vol_diangkut;
+        $vol = $this->vol_diangkut;
+        if($vol != 0){
+
+            return $this->vol_diangkut;
+        }
+
+        return 0;
     }
 
     public function set_t_bak($t_bak)
@@ -123,7 +134,7 @@ class Mobil_Pickup
         }
     
         $this->berat_diangkut += $berat;
-        echo "Berhasil mengisi barang<br>";
+        echo "Berhasil mengisi barang: ".$berat."kg<br>";
     
         return true;
     }
@@ -144,7 +155,7 @@ class Mobil_Pickup
         }
     
         $this->vol_diangkut += $vol;
-        echo "Berhasil mengisi pasir<br>";
+        echo "Berhasil mengisi pasir: ".$vol."L <br>";
         return true;
     }
     

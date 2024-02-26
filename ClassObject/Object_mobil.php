@@ -63,12 +63,13 @@ $obj_mobil_pickup_merah->isi_pasir(3);
 echo "Muatan ditambah: ";
 $obj_mobil_pickup_merah->isi_barang(10);
 echo "<br>";
-echo "Total volume bak yang tersedia: " . $obj_mobil_pickup_merah->get_vol_diangkut() . "<br>";
-echo "Berat muatan mobil carry: " . $obj_mobil_pickup_merah->get_berat_diangkut() . "<br>";
-echo "Jumlah sisa bbm saat ini: " . $obj_mobil_pickup_merah->get_sisa_bbm() . "<br>";
+echo "Total volume bak yang tersedia: " . $obj_mobil_pickup_merah->get_vol_diangkut() . "L <br>";
+echo "Berat muatan mobil carry: " . $obj_mobil_pickup_merah->get_berat_diangkut() . "Kg <br>";
+echo "Jumlah sisa bbm saat ini: " . $obj_mobil_pickup_merah->get_sisa_bbm() . "L <br>";
 $sisa_bbm_pickup_merah = $obj_mobil_pickup_merah->get_sisa_bbm();
 $obj_mobil_pickup_merah->set_jarak(330);
 echo "Uang yang harus diberi ke supir untuk menempuh jarak " . $obj_mobil_pickup_merah->get_jarak() . " KM, yogyakarta-surabaya pulang pergi adalah: " . $obj_mobil_pickup_merah->hitung_bayaran($sisa_bbm_pickup_merah) * 2 . "<br>";
+echo "Jumlah bbm saat ini setelah menempuh jarak: " . $obj_mobil_pickup_biru->get_jarak() . " KM adalah " . $obj_mobil_pickup_biru->get_sisa_bbm() . "L <br>";
 
 
 echo "<br><br>";
@@ -84,13 +85,13 @@ $obj_mobil_pickup_biru->isi_barang(70);
 echo "Muatan ditambah: ";
 $obj_mobil_pickup_biru->isi_barang(80);
 echo "<br>";
-echo "Total volume bak tersedia: " . $obj_mobil_pickup_biru->get_vol_diangkut() . "<br>";
-echo "Berat Diangkut: " . $obj_mobil_pickup_biru->get_berat_diangkut() . "<br>";
-echo "Jumlah bbm saat ini: " . $obj_mobil_pickup_biru->get_sisa_bbm() . " <br>";
+echo "Total volume bak tersedia: " . $obj_mobil_pickup_biru->get_vol_diangkut() . "L <br>";
+echo "Berat Diangkut: " . $obj_mobil_pickup_biru->get_berat_diangkut() . "Kg<br>";
+echo "Jumlah bbm saat ini: " . $obj_mobil_pickup_biru->get_sisa_bbm() . "L <br>";
 $sisa_bbm_pickup_biru = $obj_mobil_pickup_biru->get_sisa_bbm();
 $obj_mobil_pickup_biru->set_jarak(330);
-echo "Jumlah bbm saat ini setelah menempuh jarak: " . $obj_mobil_pickup_biru->get_jarak() . " KM adalah " . $obj_mobil_pickup_biru->get_sisa_bbm() . " <br>";
 echo "Uang yang harus diberi ke supir untuk menempuh jarak " . $obj_mobil_pickup_biru->get_jarak() . " KM, yogyakarta-surabaya adalah: " . $obj_mobil_pickup_biru->hitung_bayaran($sisa_bbm_pickup_biru) * 2 . "<br>";
+echo "Jumlah bbm saat ini setelah menempuh jarak: " . $obj_mobil_pickup_biru->get_jarak() . " KM adalah " . $obj_mobil_pickup_biru->get_sisa_bbm() . "L <br>";
 
 echo "<br><br>";
 $total_biaya_pickup_merah = $obj_mobil_pickup_merah->hitung_bayaran($sisa_bbm_pickup_merah);
